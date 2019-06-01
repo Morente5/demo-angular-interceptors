@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // HTTP
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { AlertInterceptor } from './interceptors/alert.interceptor';
 
 // Translate
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -11,11 +12,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Services
 import { LoaderService } from './services/loader.service';
+import { AlertService } from './services/alert.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LayoutModule } from './layout/layout.module';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,12 +40,14 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [
     LoaderComponent,
+    AlertComponent,
   ],
   exports: [
     CommonModule,
     HttpClientModule,
     TranslateModule,
     LoaderComponent,
+    AlertComponent,
     NgbModule,
     LayoutModule,
   ],
@@ -66,8 +71,10 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         LoaderService,
+        AlertService,
         TranslateService,
         LoaderInterceptor,
+        AlertInterceptor,
       ],
     };
   }
