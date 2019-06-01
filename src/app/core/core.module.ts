@@ -5,12 +5,17 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { AlertInterceptor } from './interceptors/alert.interceptor';
+import { SwapiSecurityInterceptor } from './interceptors/swapi-security.interceptor';
+import { StapiSecurityInterceptor } from './interceptors/stapi-security.interceptor';
 
 // Translate
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Services
+import { SwapiService } from './services/swapi.service';
+import { StapiService } from './services/stapi.service';
+import { AuthService } from './services/auth.service';
 import { LoaderService } from './services/loader.service';
 import { AlertService } from './services/alert.service';
 
@@ -70,11 +75,16 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
+        SwapiService,
+        StapiService,
+        AuthService,
         LoaderService,
         AlertService,
         TranslateService,
         LoaderInterceptor,
         AlertInterceptor,
+        SwapiSecurityInterceptor,
+        StapiSecurityInterceptor,
       ],
     };
   }
