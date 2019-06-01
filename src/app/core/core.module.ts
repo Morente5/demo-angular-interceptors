@@ -3,14 +3,19 @@ import { CommonModule } from '@angular/common';
 
 // HTTP
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 // Translate
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// Services
+import { LoaderService } from './services/loader.service';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LayoutModule } from './layout/layout.module';
+import { LoaderComponent } from './components/loader/loader.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,11 +36,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     LayoutModule,
   ],
   declarations: [
+    LoaderComponent,
   ],
   exports: [
     CommonModule,
     HttpClientModule,
     TranslateModule,
+    LoaderComponent,
     NgbModule,
     LayoutModule,
   ],
@@ -58,7 +65,9 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
+        LoaderService,
         TranslateService,
+        LoaderInterceptor,
       ],
     };
   }
