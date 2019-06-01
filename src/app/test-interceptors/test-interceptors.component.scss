@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  margin: 2rem;
+
+}
+.card-container {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.card {
+  flex: 1 0 auto;
+  width: calc(50% - 1rem);
+}
+.card:first-child {
+  margin-right: 2rem;
+}
+
+.results {
+  margin-top: 1rem;
+}
+
+.badge {
+  margin-right: .5rem;
+}
+
+.btn-outline-primary {
+  margin-top: 1rem;
+}
+.btn-primary {
+  margin-right: 1rem;
+}

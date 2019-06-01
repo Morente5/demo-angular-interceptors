@@ -1,3 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
-
+  <span class="navbar-brand"><span translate>BRAND_1</span><code> HttpClients </code><span translate>BRAND_2</span></span>
+  <div class="navbar-nav">
+    <a
+      *ngFor="let lang of availableLangs"
+      class="nav-item nav-link"
+      [ngClass]="{ 'disabled': currentLang === lang }"
+      (click)="setLang(lang)"
+    >
+      {{lang}}
+      <span *ngIf="currentLang === lang" class="sr-only">(current)</span>
+  </a>
+  </div>
 </nav>
