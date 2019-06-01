@@ -3,6 +3,13 @@ import { CommonModule } from '@angular/common';
 
 // HTTP
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ForkableHttpClientModule, ForkableHttpClient, forkHttpClient } from 'ngx-forkable-http-client';
+import {
+  SwapiHttpClient,
+  SwapiLoaderHttpClient,
+  StapiLoaderHttpClient,
+  StapiAlertLoaderHttpClient,
+} from './http/http-client.injection-token';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { AlertInterceptor } from './interceptors/alert.interceptor';
 import { SwapiSecurityInterceptor } from './interceptors/swapi-security.interceptor';
@@ -33,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     CommonModule,
     HttpClientModule,
+    ForkableHttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -50,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   exports: [
     CommonModule,
     HttpClientModule,
+    ForkableHttpClientModule,
     TranslateModule,
     LoaderComponent,
     AlertComponent,
@@ -81,10 +90,33 @@ export class CoreModule {
         LoaderService,
         AlertService,
         TranslateService,
+        // Define the providers for the non-global interceptors.
         LoaderInterceptor,
         AlertInterceptor,
         SwapiSecurityInterceptor,
         StapiSecurityInterceptor,
+        // SWAPI Http Clients
+        {
+          provide: SwapiHttpClient,
+          useFactory: forkHttpClient,
+          deps: [ForkableHttpClient, SwapiSecurityInterceptor],
+        },
+        {
+          provide: SwapiLoaderHttpClient,
+          useFactory: forkHttpClient,
+          deps: [SwapiHttpClient, LoaderInterceptor],
+        },
+        // STAPI Http Clients
+        {
+          provide: StapiLoaderHttpClient,
+          useFactory: forkHttpClient,
+          deps: [ForkableHttpClient, StapiSecurityInterceptor, LoaderInterceptor],
+        },
+        {
+          provide: StapiAlertLoaderHttpClient,
+          useFactory: forkHttpClient,
+          deps: [StapiLoaderHttpClient, AlertInterceptor],
+        },
       ],
     };
   }
