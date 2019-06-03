@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"h4\" translate>CHECK_REQ</p>\n\n<p>\n  <strong translate>SWAPI</strong>: {{'TWO_REQ' | translate}} <code>SwapiSecurityInterceptor</code> {{'ADD_HEADERS' | translate}} <code>Authorization</code>, <code>X-CRSFToken</code> {{'HEADERS' | translate}}\n</p>\n\n<div class=\"card-container\">\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITHOUT' | translate}} {{'SPINNER' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOESNT' | translate}} {{'USES' | translate}} <code>LoaderInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchPeople()\"\n        translate\n      >SEARCH_PEOPLE</button>\n      <div class=\"results\" *ngIf=\"people?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let p of people\"\n        >{{p.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"people = []\"\n            translate\n          >CLEAR_PEOPLE</button>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITH' | translate}} {{'SPINNER' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOES' | translate}} {{'USES' | translate}} <code>LoaderInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchPlanets()\"\n        translate\n      >SEARCH_PLANETS</button>\n      <div class=\"results\" *ngIf=\"planets?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let p of planets\"\n        >{{p.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"planets = []\"\n            translate\n          >CLEAR_PLANETS</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<p>\n  <strong translate>STAPI</strong>: {{'TWO_REQ' | translate}} <code>StapiSecurityInterceptor</code> {{'ADD_HEADERS' | translate}} <code>Authentication</code>, <code>Custom-Header</code> {{'HEADERS' | translate}} {{'ALSO' | translate}} <code>LoaderInterceptor</code>\n</p>\n\n<div class=\"card-container\">\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITHOUT' | translate}} {{'ALERT' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOESNT' | translate}} {{'USES' | translate}} <code>AlertInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchAnimals()\"\n        translate\n      >SEARCH_ANIMALS</button>\n      <div class=\"results\" *ngIf=\"animals?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let a of animals\"\n        >{{a.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"animals = []\"\n            translate\n          >CLEAR_ANIMALS</button>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITH' | translate}} {{'ALERT' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOES' | translate}} {{'USES' | translate}} <code>AlertInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchWeapons()\"\n        translate\n      >SEARCH_WEAPONS</button>\n      <button\n        class=\"btn btn-danger\"\n        (click)=\"searchWeaponsError()\"\n        translate\n      >SEARCH_WEAPONS_ERROR</button>\n      <div class=\"results\" *ngIf=\"weapons?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let w of weapons\"\n        >{{w.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"weapons = []\"\n            translate\n          >CLEAR_WEAPONS</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<p class=\"h4\" translate>CHECK_REQ</p>\n\n<p>\n  <strong translate>SWAPI</strong>: {{'TWO_REQ' | translate}} <code>SwapiSecurityInterceptor</code> {{'ADD_HEADERS' | translate}} <code>Authorization</code>, <code>X-CRSFToken</code> {{'HEADERS' | translate}}\n</p>\n\n<div class=\"card-container\">\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITHOUT' | translate}} {{'SPINNER' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOESNT' | translate}} {{'USES' | translate}} <code>LoaderInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchPeople()\"\n        translate\n      >SEARCH_PEOPLE</button>\n      <div class=\"results\" *ngIf=\"people?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let p of people\"\n        >{{p.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"people = []\"\n            translate\n          >CLEAR_PEOPLE</button>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITH' | translate}} {{'SPINNER' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOES' | translate}} {{'USES' | translate}} <code>LoaderInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchPlanets()\"\n        translate\n      >SEARCH_PLANETS</button>\n      <div class=\"results\" *ngIf=\"planets?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let p of planets\"\n        >{{p.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"planets = []\"\n            translate\n          >CLEAR_PLANETS</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<p>\n  <strong translate>POKEAPI</strong>: {{'TWO_REQ' | translate}} <code>PokeapiSecurityInterceptor</code> {{'ADD_HEADERS' | translate}} <code>Authentication</code>, <code>Custom-Header</code> {{'HEADERS' | translate}} {{'ALSO' | translate}} <code>LoaderInterceptor</code>\n</p>\n\n<div class=\"card-container\">\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITHOUT' | translate}} {{'ALERT' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOESNT' | translate}} {{'USES' | translate}} <code>AlertInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchPokemon()\"\n        translate\n      >SEARCH_POKEMON</button>\n      <div class=\"results\" *ngIf=\"pokemon?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let p of pokemon\"\n        >{{p.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"pokemon = []\"\n            translate\n          >CLEAR_POKEMON</button>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{'WITH' | translate}} {{'ALERT' | translate}}</h5>\n      <p class=\"card-text\">{{'THIS_REQ' | translate}} {{'DOES' | translate}} {{'USES' | translate}} <code>AlertInterceptor</code></p>\n      <button\n        class=\"btn btn-primary\"\n        (click)=\"searchBerries()\"\n        translate\n      >SEARCH_BERRIES</button>\n      <button\n        class=\"btn btn-danger\"\n        (click)=\"searchBerriesError()\"\n        translate\n      >SEARCH_BERRIES_ERROR</button>\n      <div class=\"results\" *ngIf=\"berries?.length\">\n        <span\n          class=\"badge badge-pill badge-light\"\n          *ngFor=\"let b of berries\"\n        >{{b.name}}</span>\n        <div>\n          <button\n            class=\"btn btn-outline-primary\"\n            (click)=\"berries = []\"\n            translate\n          >CLEAR_BERRIES</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -124,19 +124,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _core_services_swapi_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/services/swapi.service */ "./src/app/core/services/swapi.service.ts");
-/* harmony import */ var _core_services_stapi_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/services/stapi.service */ "./src/app/core/services/stapi.service.ts");
+/* harmony import */ var _core_services_pokeapi_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/services/pokeapi.service */ "./src/app/core/services/pokeapi.service.ts");
 
 
 
 
 var TestInterceptorsComponent = /** @class */ (function () {
-    function TestInterceptorsComponent(swapi, stapi) {
+    function TestInterceptorsComponent(swapi, pokeapi) {
         this.swapi = swapi;
-        this.stapi = stapi;
+        this.pokeapi = pokeapi;
         this.people = [];
         this.planets = [];
-        this.animals = [];
-        this.weapons = [];
+        this.pokemon = [];
+        this.berries = [];
     }
     TestInterceptorsComponent.prototype.searchPeople = function () {
         var _this = this;
@@ -150,20 +150,20 @@ var TestInterceptorsComponent = /** @class */ (function () {
             _this.planets = planets;
         });
     };
-    TestInterceptorsComponent.prototype.searchAnimals = function () {
+    TestInterceptorsComponent.prototype.searchPokemon = function () {
         var _this = this;
-        this.stapi.getAnimals$().subscribe(function (animals) {
-            _this.animals = animals;
+        this.pokeapi.getPokemon$().subscribe(function (pokemon) {
+            _this.pokemon = pokemon;
         });
     };
-    TestInterceptorsComponent.prototype.searchWeapons = function () {
+    TestInterceptorsComponent.prototype.searchBerries = function () {
         var _this = this;
-        this.stapi.getWeapons$().subscribe(function (weapons) {
-            _this.weapons = weapons;
+        this.pokeapi.getBerries$().subscribe(function (berries) {
+            _this.berries = berries;
         });
     };
-    TestInterceptorsComponent.prototype.searchWeaponsError = function () {
-        this.stapi.getWeaponsError$().subscribe();
+    TestInterceptorsComponent.prototype.searchBerriesError = function () {
+        this.pokeapi.getBerriesError$().subscribe();
     };
     TestInterceptorsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -172,7 +172,7 @@ var TestInterceptorsComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./test-interceptors.component.scss */ "./src/app/test-interceptors/test-interceptors.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_core_services_swapi_service__WEBPACK_IMPORTED_MODULE_2__["SwapiService"],
-            _core_services_stapi_service__WEBPACK_IMPORTED_MODULE_3__["StapiService"]])
+            _core_services_pokeapi_service__WEBPACK_IMPORTED_MODULE_3__["PokeapiService"]])
     ], TestInterceptorsComponent);
     return TestInterceptorsComponent;
 }());

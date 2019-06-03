@@ -337,11 +337,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _interceptors_loader_interceptor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./interceptors/loader.interceptor */ "./src/app/core/interceptors/loader.interceptor.ts");
 /* harmony import */ var _interceptors_alert_interceptor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./interceptors/alert.interceptor */ "./src/app/core/interceptors/alert.interceptor.ts");
 /* harmony import */ var _interceptors_swapi_security_interceptor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./interceptors/swapi-security.interceptor */ "./src/app/core/interceptors/swapi-security.interceptor.ts");
-/* harmony import */ var _interceptors_stapi_security_interceptor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./interceptors/stapi-security.interceptor */ "./src/app/core/interceptors/stapi-security.interceptor.ts");
+/* harmony import */ var _interceptors_pokeapi_security_interceptor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./interceptors/pokeapi-security.interceptor */ "./src/app/core/interceptors/pokeapi-security.interceptor.ts");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/fesm5/ngx-translate-http-loader.js");
 /* harmony import */ var _services_swapi_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/swapi.service */ "./src/app/core/services/swapi.service.ts");
-/* harmony import */ var _services_stapi_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/stapi.service */ "./src/app/core/services/stapi.service.ts");
+/* harmony import */ var _services_pokeapi_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/pokeapi.service */ "./src/app/core/services/pokeapi.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/core/services/auth.service.ts");
 /* harmony import */ var _services_loader_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/loader.service */ "./src/app/core/services/loader.service.ts");
 /* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/alert.service */ "./src/app/core/services/alert.service.ts");
@@ -392,7 +392,7 @@ var CoreModule = /** @class */ (function () {
             ngModule: CoreModule_1,
             providers: [
                 _services_swapi_service__WEBPACK_IMPORTED_MODULE_12__["SwapiService"],
-                _services_stapi_service__WEBPACK_IMPORTED_MODULE_13__["StapiService"],
+                _services_pokeapi_service__WEBPACK_IMPORTED_MODULE_13__["PokeapiService"],
                 _services_auth_service__WEBPACK_IMPORTED_MODULE_14__["AuthService"],
                 _services_loader_service__WEBPACK_IMPORTED_MODULE_15__["LoaderService"],
                 _services_alert_service__WEBPACK_IMPORTED_MODULE_16__["AlertService"],
@@ -401,7 +401,7 @@ var CoreModule = /** @class */ (function () {
                 _interceptors_loader_interceptor__WEBPACK_IMPORTED_MODULE_6__["LoaderInterceptor"],
                 _interceptors_alert_interceptor__WEBPACK_IMPORTED_MODULE_7__["AlertInterceptor"],
                 _interceptors_swapi_security_interceptor__WEBPACK_IMPORTED_MODULE_8__["SwapiSecurityInterceptor"],
-                _interceptors_stapi_security_interceptor__WEBPACK_IMPORTED_MODULE_9__["StapiSecurityInterceptor"],
+                _interceptors_pokeapi_security_interceptor__WEBPACK_IMPORTED_MODULE_9__["PokeapiSecurityInterceptor"],
                 // SWAPI Http Clients
                 {
                     provide: _http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["SwapiHttpClient"],
@@ -413,16 +413,16 @@ var CoreModule = /** @class */ (function () {
                     useFactory: ngx_forkable_http_client__WEBPACK_IMPORTED_MODULE_4__["forkHttpClient"],
                     deps: [_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["SwapiHttpClient"], _interceptors_loader_interceptor__WEBPACK_IMPORTED_MODULE_6__["LoaderInterceptor"]],
                 },
-                // STAPI Http Clients
+                // PokeAPI Http Clients
                 {
-                    provide: _http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["StapiLoaderHttpClient"],
+                    provide: _http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["PokeapiLoaderHttpClient"],
                     useFactory: ngx_forkable_http_client__WEBPACK_IMPORTED_MODULE_4__["forkHttpClient"],
-                    deps: [ngx_forkable_http_client__WEBPACK_IMPORTED_MODULE_4__["ForkableHttpClient"], _interceptors_stapi_security_interceptor__WEBPACK_IMPORTED_MODULE_9__["StapiSecurityInterceptor"], _interceptors_loader_interceptor__WEBPACK_IMPORTED_MODULE_6__["LoaderInterceptor"]],
+                    deps: [ngx_forkable_http_client__WEBPACK_IMPORTED_MODULE_4__["ForkableHttpClient"], _interceptors_pokeapi_security_interceptor__WEBPACK_IMPORTED_MODULE_9__["PokeapiSecurityInterceptor"], _interceptors_loader_interceptor__WEBPACK_IMPORTED_MODULE_6__["LoaderInterceptor"]],
                 },
                 {
-                    provide: _http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["StapiAlertLoaderHttpClient"],
+                    provide: _http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["PokeapiAlertLoaderHttpClient"],
                     useFactory: ngx_forkable_http_client__WEBPACK_IMPORTED_MODULE_4__["forkHttpClient"],
-                    deps: [_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["StapiLoaderHttpClient"], _interceptors_alert_interceptor__WEBPACK_IMPORTED_MODULE_7__["AlertInterceptor"]],
+                    deps: [_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_5__["PokeapiLoaderHttpClient"], _interceptors_alert_interceptor__WEBPACK_IMPORTED_MODULE_7__["AlertInterceptor"]],
                 },
             ],
         };
@@ -474,21 +474,21 @@ var CoreModule = /** @class */ (function () {
 /*!**********************************************************!*\
   !*** ./src/app/core/http/http-client.injection-token.ts ***!
   \**********************************************************/
-/*! exports provided: SwapiHttpClient, SwapiLoaderHttpClient, StapiLoaderHttpClient, StapiAlertLoaderHttpClient */
+/*! exports provided: SwapiHttpClient, SwapiLoaderHttpClient, PokeapiLoaderHttpClient, PokeapiAlertLoaderHttpClient */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SwapiHttpClient", function() { return SwapiHttpClient; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SwapiLoaderHttpClient", function() { return SwapiLoaderHttpClient; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StapiLoaderHttpClient", function() { return StapiLoaderHttpClient; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StapiAlertLoaderHttpClient", function() { return StapiAlertLoaderHttpClient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PokeapiLoaderHttpClient", function() { return PokeapiLoaderHttpClient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PokeapiAlertLoaderHttpClient", function() { return PokeapiAlertLoaderHttpClient; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
 var SwapiHttpClient = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('SwapiHttpClient');
 var SwapiLoaderHttpClient = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('SwapiLoaderHttpClient');
-var StapiLoaderHttpClient = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('StapiLoaderHttpClient');
-var StapiAlertLoaderHttpClient = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('StapiAlertLoaderHttpClient');
+var PokeapiLoaderHttpClient = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('PokeapiLoaderHttpClient');
+var PokeapiAlertLoaderHttpClient = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('PokeapiAlertLoaderHttpClient');
 
 
 /***/ }),
@@ -598,40 +598,40 @@ var LoaderInterceptor = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/core/interceptors/stapi-security.interceptor.ts":
-/*!*****************************************************************!*\
-  !*** ./src/app/core/interceptors/stapi-security.interceptor.ts ***!
-  \*****************************************************************/
-/*! exports provided: StapiSecurityInterceptor */
+/***/ "./src/app/core/interceptors/pokeapi-security.interceptor.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/core/interceptors/pokeapi-security.interceptor.ts ***!
+  \*******************************************************************/
+/*! exports provided: PokeapiSecurityInterceptor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StapiSecurityInterceptor", function() { return StapiSecurityInterceptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PokeapiSecurityInterceptor", function() { return PokeapiSecurityInterceptor; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/core/services/auth.service.ts");
 
 
 
-var StapiSecurityInterceptor = /** @class */ (function () {
-    function StapiSecurityInterceptor(auth) {
+var PokeapiSecurityInterceptor = /** @class */ (function () {
+    function PokeapiSecurityInterceptor(auth) {
         this.auth = auth;
     }
-    StapiSecurityInterceptor.prototype.intercept = function (request, next) {
+    PokeapiSecurityInterceptor.prototype.intercept = function (request, next) {
         request = request.clone({
             setHeaders: {
-                Authentication: "TOKEN " + this.auth.tokenStapi,
+                Authentication: "TOKEN " + this.auth.tokenPokeapi,
                 'Custom-Header': 'testing-angular-interceptors',
             },
         });
         return next.handle(request);
     };
-    StapiSecurityInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    PokeapiSecurityInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
-    ], StapiSecurityInterceptor);
-    return StapiSecurityInterceptor;
+    ], PokeapiSecurityInterceptor);
+    return PokeapiSecurityInterceptor;
 }());
 
 
@@ -958,7 +958,7 @@ __webpack_require__.r(__webpack_exports__);
 var AuthService = /** @class */ (function () {
     function AuthService() {
         this.tokenSwapi = 'X';
-        this.tokenStapi = 'Y';
+        this.tokenPokeapi = 'Y';
     }
     AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -1006,16 +1006,16 @@ var LoaderService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/core/services/stapi.service.ts":
-/*!************************************************!*\
-  !*** ./src/app/core/services/stapi.service.ts ***!
-  \************************************************/
-/*! exports provided: StapiService */
+/***/ "./src/app/core/services/pokeapi.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/core/services/pokeapi.service.ts ***!
+  \**************************************************/
+/*! exports provided: PokeapiService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StapiService", function() { return StapiService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PokeapiService", function() { return PokeapiService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
@@ -1026,29 +1026,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var StapiService = /** @class */ (function () {
-    function StapiService(http, httpAlert) {
+var PokeapiService = /** @class */ (function () {
+    function PokeapiService(http, httpAlert) {
         this.http = http;
         this.httpAlert = httpAlert;
-        this.url = "http://stapi.co/api/v1/rest";
+        this.url = "https://pokeapi.co/api/v2";
     }
-    StapiService.prototype.getAnimals$ = function () {
-        return this.http.get(this.url + "/animal/search").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pluck"])('animals'));
+    PokeapiService.prototype.getPokemon$ = function () {
+        return this.http.get(this.url + "/pokemon").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pluck"])('results'));
     };
-    StapiService.prototype.getWeapons$ = function () {
-        return this.httpAlert.get(this.url + "/weapon/search").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pluck"])('weapons'));
+    PokeapiService.prototype.getBerries$ = function () {
+        return this.httpAlert.get(this.url + "/berry").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pluck"])('results'));
     };
-    StapiService.prototype.getWeaponsError$ = function () {
-        return this.httpAlert.get(this.url + "/weapon/");
+    PokeapiService.prototype.getBerriesError$ = function () {
+        return this.httpAlert.get(this.url + "/berries");
     };
-    StapiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    PokeapiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_4__["StapiLoaderHttpClient"])),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_4__["StapiAlertLoaderHttpClient"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_4__["PokeapiLoaderHttpClient"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_http_http_client_injection_token__WEBPACK_IMPORTED_MODULE_4__["PokeapiAlertLoaderHttpClient"])),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-    ], StapiService);
-    return StapiService;
+    ], PokeapiService);
+    return PokeapiService;
 }());
 
 
