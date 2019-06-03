@@ -7,13 +7,13 @@ import { ForkableHttpClientModule, ForkableHttpClient, forkHttpClient } from 'ng
 import {
   SwapiHttpClient,
   SwapiLoaderHttpClient,
-  StapiLoaderHttpClient,
-  StapiAlertLoaderHttpClient,
+  PokeapiLoaderHttpClient,
+  PokeapiAlertLoaderHttpClient,
 } from './http/http-client.injection-token';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { AlertInterceptor } from './interceptors/alert.interceptor';
 import { SwapiSecurityInterceptor } from './interceptors/swapi-security.interceptor';
-import { StapiSecurityInterceptor } from './interceptors/stapi-security.interceptor';
+import { PokeapiSecurityInterceptor } from './interceptors/pokeapi-security.interceptor';
 
 // Translate
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -21,7 +21,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Services
 import { SwapiService } from './services/swapi.service';
-import { StapiService } from './services/stapi.service';
+import { PokeapiService } from './services/pokeapi.service';
 import { AuthService } from './services/auth.service';
 import { LoaderService } from './services/loader.service';
 import { AlertService } from './services/alert.service';
@@ -85,7 +85,7 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         SwapiService,
-        StapiService,
+        PokeapiService,
         AuthService,
         LoaderService,
         AlertService,
@@ -94,7 +94,7 @@ export class CoreModule {
         LoaderInterceptor,
         AlertInterceptor,
         SwapiSecurityInterceptor,
-        StapiSecurityInterceptor,
+        PokeapiSecurityInterceptor,
         // SWAPI Http Clients
         {
           provide: SwapiHttpClient,
@@ -106,16 +106,16 @@ export class CoreModule {
           useFactory: forkHttpClient,
           deps: [SwapiHttpClient, LoaderInterceptor],
         },
-        // STAPI Http Clients
+        // PokeAPI Http Clients
         {
-          provide: StapiLoaderHttpClient,
+          provide: PokeapiLoaderHttpClient,
           useFactory: forkHttpClient,
-          deps: [ForkableHttpClient, StapiSecurityInterceptor, LoaderInterceptor],
+          deps: [ForkableHttpClient, PokeapiSecurityInterceptor, LoaderInterceptor],
         },
         {
-          provide: StapiAlertLoaderHttpClient,
+          provide: PokeapiAlertLoaderHttpClient,
           useFactory: forkHttpClient,
-          deps: [StapiLoaderHttpClient, AlertInterceptor],
+          deps: [PokeapiLoaderHttpClient, AlertInterceptor],
         },
       ],
     };

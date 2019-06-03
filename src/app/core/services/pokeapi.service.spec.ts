@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StapiService } from './stapi.service';
+import { PokeapiService } from './pokeapi.service';
 
-describe('StapiService', () => {
+describe('PokeapiService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: StapiService = TestBed.get(StapiService);
+    const service: PokeapiService = TestBed.get(PokeapiService);
     expect(service).toBeTruthy();
   });
 });

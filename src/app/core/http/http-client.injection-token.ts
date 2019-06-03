@@ -7,8 +7,8 @@ export const SwapiHttpClient =
 export const SwapiLoaderHttpClient =
   new InjectionToken<ForkableHttpClient>('SwapiLoaderHttpClient');
 
-export const StapiLoaderHttpClient =
-  new InjectionToken<ForkableHttpClient>('StapiLoaderHttpClient');
+export const PokeapiLoaderHttpClient =
+  new InjectionToken<ForkableHttpClient>('PokeapiLoaderHttpClient');
 
-export const StapiAlertLoaderHttpClient =
-  new InjectionToken<ForkableHttpClient>('StapiAlertLoaderHttpClient');
+export const PokeapiAlertLoaderHttpClient =
+  new InjectionToken<ForkableHttpClient>('PokeapiAlertLoaderHttpClient');

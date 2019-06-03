@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SwapiService } from '../core/services/swapi.service';
-import { StapiService } from '../core/services/stapi.service';
+import { PokeapiService } from '../core/services/pokeapi.service';
 
 @Component({
   selector: 'app-test-interceptors',
@@ -11,13 +11,13 @@ export class TestInterceptorsComponent {
 
   people = [];
   planets = [];
-  animals = [];
-  weapons = [];
+  pokemon = [];
+  berries = [];
 
 
   constructor(
     private readonly swapi: SwapiService,
-    private readonly stapi: StapiService,
+    private readonly pokeapi: PokeapiService,
   ) { }
 
   searchPeople() {
@@ -30,18 +30,18 @@ export class TestInterceptorsComponent {
       this.planets = planets;
     });
   }
-  searchAnimals() {
-    this.stapi.getAnimals$().subscribe(animals => {
-      this.animals = animals;
+  searchPokemon() {
+    this.pokeapi.getPokemon$().subscribe(pokemon => {
+      this.pokemon = pokemon;
     });
   }
-  searchWeapons() {
-    this.stapi.getWeapons$().subscribe(weapons => {
-      this.weapons = weapons;
+  searchBerries() {
+    this.pokeapi.getBerries$().subscribe(berries => {
+      this.berries = berries;
     });
   }
-  searchWeaponsError() {
-    this.stapi.getWeaponsError$().subscribe();
+  searchBerriesError() {
+    this.pokeapi.getBerriesError$().subscribe();
   }
 
 }

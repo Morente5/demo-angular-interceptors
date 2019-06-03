@@ -57,7 +57,7 @@
 </div>
 
 <p>
-  <strong translate>STAPI</strong>: {{'TWO_REQ' | translate}} <code>StapiSecurityInterceptor</code> {{'ADD_HEADERS' | translate}} <code>Authentication</code>, <code>Custom-Header</code> {{'HEADERS' | translate}} {{'ALSO' | translate}} <code>LoaderInterceptor</code>
+  <strong translate>POKEAPI</strong>: {{'TWO_REQ' | translate}} <code>PokeapiSecurityInterceptor</code> {{'ADD_HEADERS' | translate}} <code>Authentication</code>, <code>Custom-Header</code> {{'HEADERS' | translate}} {{'ALSO' | translate}} <code>LoaderInterceptor</code>
 </p>
 
 <div class="card-container">
@@ -67,20 +67,20 @@
       <p class="card-text">{{'THIS_REQ' | translate}} {{'DOESNT' | translate}} {{'USES' | translate}} <code>AlertInterceptor</code></p>
       <button
         class="btn btn-primary"
-        (click)="searchAnimals()"
+        (click)="searchPokemon()"
         translate
-      >SEARCH_ANIMALS</button>
-      <div class="results" *ngIf="animals?.length">
+      >SEARCH_POKEMON</button>
+      <div class="results" *ngIf="pokemon?.length">
         <span
           class="badge badge-pill badge-light"
-          *ngFor="let a of animals"
-        >{{a.name}}</span>
+          *ngFor="let p of pokemon"
+        >{{p.name}}</span>
         <div>
           <button
             class="btn btn-outline-primary"
-            (click)="animals = []"
+            (click)="pokemon = []"
             translate
-          >CLEAR_ANIMALS</button>
+          >CLEAR_POKEMON</button>
         </div>
       </div>
     </div>
@@ -92,25 +92,25 @@
       <p class="card-text">{{'THIS_REQ' | translate}} {{'DOES' | translate}} {{'USES' | translate}} <code>AlertInterceptor</code></p>
       <button
         class="btn btn-primary"
-        (click)="searchWeapons()"
+        (click)="searchBerries()"
         translate
-      >SEARCH_WEAPONS</button>
+      >SEARCH_BERRIES</button>
       <button
         class="btn btn-danger"
-        (click)="searchWeaponsError()"
+        (click)="searchBerriesError()"
         translate
-      >SEARCH_WEAPONS_ERROR</button>
-      <div class="results" *ngIf="weapons?.length">
+      >SEARCH_BERRIES_ERROR</button>
+      <div class="results" *ngIf="berries?.length">
         <span
           class="badge badge-pill badge-light"
-          *ngFor="let w of weapons"
-        >{{w.name}}</span>
+          *ngFor="let b of berries"
+        >{{b.name}}</span>
         <div>
           <button
             class="btn btn-outline-primary"
-            (click)="weapons = []"
+            (click)="berries = []"
             translate
-          >CLEAR_WEAPONS</button>
+          >CLEAR_BERRIES</button>
         </div>
       </div>
     </div>

@@ -7,13 +7,13 @@ import {
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
-export class StapiSecurityInterceptor implements HttpInterceptor {
+export class PokeapiSecurityInterceptor implements HttpInterceptor {
 
   constructor(public auth: AuthService) { }
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     request = request.clone({
       setHeaders: {
-        Authentication: `TOKEN ${this.auth.tokenStapi}`,
+        Authentication: `TOKEN ${this.auth.tokenPokeapi}`,
         'Custom-Header': 'testing-angular-interceptors',
       },
     });
